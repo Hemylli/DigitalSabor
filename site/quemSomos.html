@@ -46,19 +46,43 @@
             height: 150px;
             background: red;
         }
+        header nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0px 0px 0px 280px;
+        }
+        header nav ul li a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <img src="img/logo.jpg" alt="Logo da Empresa" class="logo">
-    <p> 
-    </p>
+    <div> 
+        <img src="img/logo.png" alt="Logo da Empresa" class="logo">
+        <p>
+
+        </p>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="home.html">Início</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="#">Cardápio</a></li>
+        </ul>
+    </nav>
 </header>
 
 <section>
     <h2>Sobre Nós</h2>
-    <p>A <strong>Nome da Empresa</strong> foi fundada em [ano] e é uma referência em [setor]. Nossa missão é [missão da empresa], oferecendo produtos/serviços de alta qualidade para nossos clientes.</p>
+    <p>A <strong>Digital Sabor</strong> foi fundada em 2024 e é uma referência em cardapio digital. Aqui é o seu destino online para uma deliciosa fusão entre culinária e tecnologia. Aqui, exploramos o mundo dos sabores e das experiências gastronômicas com um toque digital. Seja você um chef aspirante, um foodie apaixonado ou apenas alguém que ama uma boa refeição .</p>
 </section>
 
 <section>
@@ -71,8 +95,8 @@
         </div>
         <div class="member">
             <img src="img/integrante2.jpg" alt="Funcionário 2">
-            <p>Nome Sobrenome</p>
-            <p><a href="#" target="_blank">Link GitHub</a></p>
+            <p>Hemylli Santos</p>
+            <p><a href="https://github.com/Hemylli" target="_blank">Link GitHub</a></p>
         </div>
         <div class="member">
             <img src="img/integrante3.jpg" alt="Funcionário 3">
