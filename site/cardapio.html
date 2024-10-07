@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cardápio</title>
+        <style>
+            .footer-section{
+                flex: 1;
+                text-align: center;
+            }
+            .logo{
+                margin-right: 100px;
+                width: 100px;
+            }
+            header{
+                background-color: #FF0000;
+                color: white;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px;
+            }
+            header nav ul{
+                gap: 20px;
+                list-style: none;
+                display: flex;
+            }
+            header nav ul a{
+                text-decoration: none;
+                font-weight: bold;
+                color: white;
+            }
+            header nav ul a:hover{
+                text-decoration: underline;
+            }
+            footer h1{
+                margin: 0;
+            }
+            footer{
+                background-color: #FF0000;
+                color: white;
+                display: flex;
+                justify-content: space-between;
+                padding: 10px 40px;
+                position: fixed;
+                width: 100%;
+                bottom: 0;
+                box-sizing: border-box;
+            }
+            section, table, th, td{
+                color: red;
+                border: 2px solid red;
+                border-collapse: collapse;
+                width: 100%;
+                font-size: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div>
+                <img src="img/logo.png" alt="logo" class="logo">
+                <p>
+
+                </p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="quemSomos.html">Quem somos?</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section>
+            <table>
+                <tr>
+                    <th>Alimentos</th>
+                    <th>Preço</th>
+                    <th>🍴</th>
+                </tr>
+                <tr>
+                    <td>Comida 1</td>
+                    <td><R1>12,00</R1></td>
+                    <td><button>Pedir</button></td>
+                </tr>
+                <tr>
+                    <td>Comida 2</td>
+                    <td><R1>21,00</R1></td>
+                    <td><button>Pedir</button></td>
+                </tr>
+                <tr>
+                    <td>Comida 3</td>
+                    <td><R1>15,50</R1></td>
+                    <td><button>Pedir</button></td>
+                </tr>
+                <tr>
+                    <td>Comida 4</td>
+                    <td><R1>24,00</R1></td>
+                    <td><button>Pedir</button></td>
+                </tr>
+                <tr>
+                    <td>Comida 5</td>
+                    <td><R1>10,00</R1></td>
+                    <td><button>Pedir</button></td>
+                </tr>
+                <tr>
+                    <td>Comida 6</td>
+                    <td><R1>17,00</R1></td>
+                    <td><button>Pedir</button></td>
+                </tr>
+                <tr>
+                    <td>Comida 7</td>
+                    <td><R1>25,50</R1></td>
+                    <td><button>Pedir</button></td>
+                </tr>
+            </table>
+        </section>
+        <footer>
+            <div class="footer-section">
+             <h1>Cardápio</h1>   
+            </div>
+            
+        </footer>
+    </body>
+</html>
