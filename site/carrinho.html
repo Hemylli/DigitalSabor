@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho - Digital Sabor</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="logo">
+            <h1>Digital Sabor</h1>
+        </div>
+        <nav>
+            
+        </nav>
+    </header>
+
+    <header>
+        <nav id="navbar">
+            <img src="images/logo.png" alt="Logo da Empresa" class="nav_logo">
+
+            <ul id="nav_list">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="#cardapio">Cardápio</a></li>
+                <li><a href="sobrenos.html">Sobre Nós</a></li>
+                <li><a href="carrinho.html" class="active">Carrinho</a></li>
+            </ul>
+                
+            <button class="">
+                <a href=""></a>                
+            </button>
+
+            <button id="">
+                <i class=""></i>
+            </button>
+            
+        </nav>
+
+        <div id="mobile_menu">
+            <ul id="mobile_nav_list">
+                <li class="nav-item active">
+                    <a href="#home">Início</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#menu">Cardápio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#aboutus">Sobre Nós</a>
+                </li>
+            </ul>
+
+            <button class="btn-default">
+                <a href="login.html">Peça aqui</a>                
+            </button>
+        </div>
+    </header>
+
+    <!-- Conteúdo do Carrinho -->
+    <main>
+        <section class="carrinho-container">
+            <h2>Seu Carrinho</h2>
+            <table class="carrinho-tabela">
+                <thead>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Quantidade</th>
+                        <th>Preço Unitário</th>
+                        <th>Total</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pizza Calabresa</td>
+                        <td>2</td>
+                        <td>R$25,00</td>
+                        <td>R$50,00</td>
+                        <td><button class="remover-item"><i class="fas fa-trash"></i> Remover</button></td>
+                    </tr>
+                    <tr>
+                        <td>Refrigerante</td>
+                        <td>1</td>
+                        <td>R$8,00</td>
+                        <td>R$8,00</td>
+                        <td><button class="remover-item"><i class="fas fa-trash"></i> Remover</button></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3" class="total-texto">Total:</td>
+                        <td colspan="2" class="total-valor">R$58,00</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div class="finalizar-compra">
+                <button class="btn-finalizar">Finalizar Compra</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <div id="footer_items">
+            <span id="copyright">
+                &copy 2024 Digital Sabor
+            </span>
+
+            <div class="social-media-buttons">
+                <a href="">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+
+                <a href="">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- JavaScript para o Carrinho -->
+    <script src="script.js"></script>
+</body>
+</html>
