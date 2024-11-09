@@ -44,8 +44,9 @@
 
             <!-- Ícone de Carrinho de Compras -->
             <button class="btn-cart">
-                <a href="carrinho.html">
-                    <i class="fa-solid fa-cart-shopping"></i> Carrinho
+                <a href="carrinho.php">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span></span>
                 </a>
             </button>
 
@@ -124,7 +125,10 @@
             <div class="box-container">
                 <?php
                 // Consultar os pratos no banco de dados
-                $stmt = $pdo->query("SELECT nome, descricao, imagem, preco FROM produtos");
+                // Alteração: Incluindo a coluna 'id' na consulta SQL
+                $stmt = $pdo->query("SELECT id, nome, descricao, imagem, preco FROM produtos");
+
+                // Exibir os produtos
                 while ($produto = $stmt->fetch(PDO::FETCH_ASSOC)) {
                     // Montar o caminho completo da imagem
                     $imagemCaminho = "images/cardapio/" . $produto['imagem'];
@@ -151,7 +155,10 @@
 
                 <div class='dish-price'>
                     <h4>R$ " . number_format($produto['preco'], 2, ',', '.') . "</h4>
-                    <button class='btn-default' id='btn-buy'>
+                    <button class='btn-default btn-buy' 
+                        data-id='{$produto['id']}' 
+                        data-nome='{$produto['nome']}' 
+                        data-preco='{$produto['preco']}'>
                         <i class='fa-solid fa-basket-shopping'></i>
                     </button>
                 </div>
@@ -187,6 +194,8 @@
     </footer>
 
     <script src="javascript/script.js"></script>
+    <script src="javascript/atualiza_carrinho.js"></script>
+    <script src="javascript/armazena_carrinho.js"></script>
 </body>
 
 </html>
