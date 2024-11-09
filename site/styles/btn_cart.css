@@ -1,0 +1,22 @@
+/* Alinhar os botões na barra de navegação */
+header .btn-default, header .btn-cart {
+    display: inline-block;
+    margin-left: 10px;
+    background-color: #f1f1f1; /* Cor de fundo do botão, ajuste conforme necessário */
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+header .btn-cart a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #000; /* Cor do texto */
+}
+
+header .btn-cart i {
+    margin-right: 5px; /* Espaço entre o ícone e o texto */
+}
