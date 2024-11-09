@@ -69,3 +69,10 @@
     align-items: center;
     gap: 20px;
 }
+
+.dish-image {
+    width: 200px; /* Defina a largura desejada */
+    height: 150px; /* Defina a altura desejada */
+    object-fit: cover; /* Ajusta a imagem para preencher o contêiner mantendo a proporção */
+    border-radius: 8px; /* Bordas arredondadas (opcional) */
+}
