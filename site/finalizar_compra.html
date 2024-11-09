@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrinho de Compras - Digital Sabor</title>
+    <title>Compra Finalizada - Digital Sabor</title>
+    <link rel="stylesheet" href="styles/finalizar_compra.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/footer.css">
     <link rel="stylesheet" href="styles/cart.css">
-    <script src="js/script.js" defer></script>
 </head>
+
 <body>
     <!-- Menu de navegação igual ao index.html -->
     <header>
@@ -58,44 +59,27 @@
         </div>
     </header>
 
-    <!-- Título e conteúdo do carrinho -->
-    <section class="carrinho">
-        <h1>Carrinho de Compras</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>Produto</th>
-                    <th>Preço</th>
-                    <th>Quantidade</th>
-                    <th>Ação</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Exemplo de item no carrinho -->
-                <tr>
-                    <td>Prato Principal</td>
-                    <td>R$ 30,00</td>
-                    <td>2</td>
-                    <td><button class="remover" onclick="removerItem()">Remover</button></td>
-                </tr>
-                <!-- Mais itens podem ser listados aqui -->
-            </tbody>
-        </table>
-        <div class="total">
-            <p>Total: R$ 60,00</p>
-            <button class="finalizar" onclick="finalizarCompra()">
-                <a href="finalizar_compra.html">Finalizar Compra</a> 
-            </button>
+    <section class="compra-finalizada">
+        <h1>Compra Finalizada!</h1>
+        <div id="status-compra">
+            <p id="mensagem-status">Sua compra foi realizada com sucesso! <span id="check-status">&#x2705;</span></p>
+        </div>
+
+        <!-- Nova mensagem sobre o WhatsApp (vai aparecer apenas em caso de sucesso) -->
+        <div class="informacao-contato" id="mensagem-contato">
+            <p>Em breve, entraremos em contato pelo WhatsApp para informar o status e andamento do seu pedido.</p>
+        </div>
+
+        <!-- Slogan da empresa (vai aparecer apenas em caso de sucesso) -->
+        <div class="slogan" id="slogan">
+            <p><strong>Digital Sabor é o seu destino online para uma deliciosa fusão entre culinária e tecnologia.</strong></p>
+        </div>
+
+        <!-- Mensagem de falha (vai aparecer apenas em caso de falha) -->
+        <div id="falha-compra" style="display:none;">
+            <p>Ocorreu um erro com sua compra. Por favor, tente novamente. <span id="carinha-triste">&#x1F61E;</span></p>
         </div>
     </section>
-
-    <!-- Popup de sucesso ou falha -->
-    <div id="popup" class="popup">
-        <div class="popup-content">
-            <span id="popup-close" class="close">&times;</span>
-            <p id="popup-message"></p>
-        </div>
-    </div>
 
     <footer>
         <div id="footer_items">
@@ -120,7 +104,23 @@
         </div>
     </footer>
 
-    <script src="javascript/popup_carrinho.js"></script>
-    <script src="javascript/finalizar_compra.js"></script>
+    <script>
+        // Lógica para determinar o status da compra
+        let compraBemSucedida = true;  // Altere para 'false' para simular falha na compra
+
+        if (compraBemSucedida) {
+            // Compra bem-sucedida
+            document.getElementById("mensagem-status").innerHTML = `Sua compra foi realizada com sucesso! <span id="check-status">&#x2705;</span>`;
+            document.getElementById("mensagem-contato").style.display = "block";
+            document.getElementById("slogan").style.display = "block";
+            document.getElementById("falha-compra").style.display = "none";
+        } else {
+            // Compra falhou
+            document.getElementById("mensagem-status").innerHTML = `Ocorreu um erro com sua compra. Por favor, tente novamente. <span id="carinha-triste">&#x1F61E;</span>`;
+            document.getElementById("mensagem-contato").style.display = "none";
+            document.getElementById("slogan").style.display = "none";
+            document.getElementById("falha-compra").style.display = "block";
+        }
+    </script>
 </body>
 </html>

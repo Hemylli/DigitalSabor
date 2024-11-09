@@ -1,0 +1,44 @@
+/* Estilo para a página de finalização de compra */
+.compra-finalizada {
+    text-align: center;
+    padding: 50px;
+}
+
+#status-compra p {
+    font-size: 20px;
+}
+
+#check-status {
+    font-size: 30px;
+    color: green;
+}
+
+#carinha-triste {
+    font-size: 30px;
+    color: red;
+}
+
+/* Estilo para a mensagem de contato via WhatsApp */
+.informacao-contato {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #555;
+    display: none;  /* Inicialmente oculta */
+}
+
+/* Estilo para o slogan */
+.slogan {
+    margin-top: 30px;
+    font-size: 20px;
+    color: #333;
+    font-weight: bold;
+    display: none;  /* Inicialmente oculta */
+}
+
+/* Estilo para a falha */
+#falha-compra {
+    margin-top: 20px;
+    font-size: 18px;
+    color: red;
+    display: none;  /* Inicialmente oculta */
+}
