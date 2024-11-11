@@ -196,6 +196,7 @@
     <script src="javascript/script.js"></script>
     <script src="javascript/atualiza_carrinho.js"></script>
     <script src="javascript/armazena_carrinho.js"></script>
+    <script src="javascript/sync_carrinho.js"></script>
 </body>
 
 </html>

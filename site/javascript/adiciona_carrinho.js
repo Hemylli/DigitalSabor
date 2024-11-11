@@ -1,4 +1,3 @@
-// Função para adicionar um produto ao carrinho
 function adicionarAoCarrinho(nome, preco) {
     let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
 
@@ -7,9 +6,9 @@ function adicionarAoCarrinho(nome, preco) {
 
     if (produtoIndex >= 0) {
         // Se o produto já estiver no carrinho, aumenta a quantidade
-        carrinho[produtoIndex].quantidade += 1;
+        carrinho[produtoIndex].quantidade = carrinho[produtoIndex].quantidade ? carrinho[produtoIndex].quantidade + 1 : 1;
     } else {
-        // Se o produto não estiver no carrinho, adiciona um novo item
+        // Se o produto não estiver no carrinho, adiciona um novo item com quantidade 1
         carrinho.push({
             nome: nome,
             preco: preco,
@@ -23,6 +22,7 @@ function adicionarAoCarrinho(nome, preco) {
     // Atualiza a contagem no ícone do carrinho
     atualizarContagemCarrinho();
 }
+
 
 // Atualiza a contagem no ícone do carrinho
 function atualizarContagemCarrinho() {

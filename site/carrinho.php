@@ -6,7 +6,8 @@ function calcularTotal($carrinho)
 {
     $total = 0;
     foreach ($carrinho as $item) {
-        $total += $item['preco'] * $item['quantidade'];
+        $quantidade = isset($item['quantidade']) ? $item['quantidade'] : 1;
+        $total += $item['preco'] * $quantidade;
     }
     return number_format($total, 2, ',', '.');
 }
@@ -14,22 +15,35 @@ function calcularTotal($carrinho)
 // Função para remover item
 if (isset($_GET['remover'])) {
     $index = $_GET['remover'];
+
+    // Limpa a informação daquele item específico na sessão
     unset($_SESSION['carrinho'][$index]);
-    header("Location: carrinho.php"); // Redireciona após remover o item
+
+    // Opcionalmente, você pode reindexar o carrinho para que o array continue com índices corretos (isso não é essencial).
+    $_SESSION['carrinho'] = array_values($_SESSION['carrinho']);
+
+    header("Location: carrinho.php");
     exit;
 }
 
-// Se o carrinho não existe na sessão, cria um
+
+
+// Função para limpar o carrinho
+if (isset($_GET['limpar'])) {
+    unset($_SESSION['carrinho']);
+    echo 'Carrinho limpo';
+    exit;
+}
+
 if (!isset($_SESSION['carrinho'])) {
     $_SESSION['carrinho'] = [];
 }
 
-// Se os dados do carrinho forem enviados via POST (do localStorage)
 if (isset($_POST['carrinho'])) {
-    // Recebe o carrinho enviado via POST e armazena na sessão
     $_SESSION['carrinho'] = json_decode($_POST['carrinho'], true);
+    echo json_encode(['status' => 'success']);
+    exit;
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -76,41 +90,33 @@ if (isset($_POST['carrinho'])) {
             </thead>
             <tbody>
                 <?php if (!empty($_SESSION['carrinho'])): ?>
+                    <button class="limpar-carrinho" id="limpar-carrinho" onclick="limparCarrinho()">Limpar Carrinho</button>
                     <?php foreach ($_SESSION['carrinho'] as $index => $item): ?>
-                        <!-- Limpar carrinho -->
-                        <button class="limpar-carrinho" id="limpar-carrinho" onclick="limparCarrinho()">Limpar Carrinho</button>
                         <tr>
                             <td><?php echo htmlspecialchars($item['nome']); ?></td>
                             <td>R$ <?php echo number_format($item['preco'], 2, ',', '.'); ?></td>
-                            <td><?php echo $item['quantidade']; ?></td>
+                            <td><?php echo isset($item['quantidade']) ? $item['quantidade'] : 1; ?></td> <!-- Ajuste aqui -->
                             <td><a href="?remover=<?php echo $index; ?>" class="remover">Remover</a></td>
                         </tr>
-
-                        <div class="total">
-                            <p>Total: R$ <?php echo calcularTotal($_SESSION['carrinho']); ?></p>
-                            <button class="finalizar" onclick="finalizarCompra()">
-                                <a href="finalizar_compra.html" style="color: white">Finalizar Compra</a>
-                            </button>
-                        </div>
                     <?php endforeach; ?>
                 <?php else: ?>
                     <tr>
                         <td colspan="4">Carrinho vazio</td>
                     </tr>
                 <?php endif; ?>
+
             </tbody>
         </table>
         <?php if (!empty($_SESSION['carrinho'])): ?>
-            <?php foreach ($_SESSION['carrinho'] as $index => $item): ?>
-                <div class="total">
-                    <p>Total: R$ <?php echo calcularTotal($_SESSION['carrinho']); ?></p>
-                    <button class="finalizar" onclick="finalizarCompra()">
-                        <a href="finalizar_compra.html" style="color: white">Finalizar Compra</a>
-                    </button>
-                </div>
-            <?php endforeach; ?>
-        <?php endif; ?>
+            <div class="total">
+                <p>Total: R$ <?php echo calcularTotal($_SESSION['carrinho']); ?></p>
 
+                <button class="finalizar" onclick="finalizarCompra()">
+                    <a href="cadastro_basic.php" style="color: white">Finalizar Compra</a>
+                </button>
+
+            </div>
+        <?php endif; ?>
     </section>
 
     <footer>
@@ -125,17 +131,22 @@ if (isset($_POST['carrinho'])) {
     </footer>
 
     <script src="javascript/popup_carrinho.js"></script>
-    <script src="javascript/armazena_carrinho.js"></script>
     <script src="javascript/atualiza_carrinho.js"></script>
+    <script src="javascript/sync_carrinho.js"></script>
     <script src="javascript/finalizar_compra.js"></script>
 
     <script>
         // Função para limpar o carrinho
         function limparCarrinho() {
-            localStorage.removeItem('carrinho'); // Limpa o carrinho do localStorage
-            sessionStorage.removeItem('carrinho'); // Limpa o carrinho da sessão
-            window.location.reload(); // Atualiza a página
+            localStorage.removeItem('carrinho'); // Limpa o carrinho no localStorage
+            fetch('carrinho.php?limpar=true') // Limpa o carrinho na sessão PHP
+                .then(response => response.text())
+                .then(() => {
+                    window.location.reload(); // Atualiza a página após limpar o carrinho
+                })
+                .catch(error => console.error('Erro ao limpar o carrinho:', error));
         }
+
     </script>
 
 </body>

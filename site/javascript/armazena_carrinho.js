@@ -27,4 +27,30 @@ document.querySelectorAll('.btn-buy').forEach(btn => {
 // Atualizar a contagem ao carregar a página
 atualizarContagemCarrinho();
 
+function adicionarAoCarrinho(nome, preco) {
+    let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+    // Verifica se o produto já está no carrinho
+    const produtoIndex = carrinho.findIndex(item => item.nome === nome);
+
+    if (produtoIndex >= 0) {
+        // Se o produto já estiver no carrinho, aumenta a quantidade
+        carrinho[produtoIndex].quantidade += 1;
+    } else {
+        // Se o produto não estiver no carrinho, adiciona um novo item com quantidade 1
+        carrinho.push({
+            nome: nome,
+            preco: preco,
+            quantidade: 1
+        });
+    }
+
+    // Salva o carrinho atualizado no localStorage
+    localStorage.setItem('carrinho', JSON.stringify(carrinho));
+
+    // Atualiza a contagem no ícone do carrinho
+    atualizarContagemCarrinho();
+}
+
+
 
