@@ -1,18 +1,18 @@
 -- Inserir usuários
-INSERT INTO usuarios (nome, sobrenome, classificacao, telefone) VALUES
-('João', 'Silva', 'cliente', '123456789'),
-('Maria', 'Oliveira', 'cliente', '987654321'),
-('Ana', 'Souza', 'admin', '456789123'),
-('Pedro', 'Lima', 'cliente', '321654987'),
-('Carla', 'Moraes', 'admin', '654321789');
+INSERT INTO usuarios (nome, sobrenome, classificacao, celular) VALUES
+('João', 'Silva', 'cliente', '119123456789'),
+('Maria', 'Oliveira', 'cliente', '21987654321'),
+('Ana', 'Souza', 'admin', '119456789123'),
+('Pedro', 'Lima', 'cliente', '219321654987'),
+('Carla', 'Moraes', 'admin', '319654321789');
 
 -- Inserir endereços
-INSERT INTO endereco (usuario_id, tipo, cidade, rua, numero, complemento) VALUES
-(1, 'Residencial', 'São Paulo', 'Rua A', '123', 'Apto 1'),
-(2, 'Residencial', 'São Paulo', 'Rua B', '456', ''),
-(3, 'Comercial', 'São Paulo', 'Rua C', '789', 'Sala 2'),
-(4, 'Residencial', 'Rio de Janeiro', 'Rua D', '321', 'Casa 3'),
-(5, 'Residencial', 'Belo Horizonte', 'Rua E', '654', '');
+INSERT INTO endereco (usuario_id, cidade, rua, numero, complemento) VALUES
+(1, 'São Paulo', 'Rua A', '123', 'Apto 1'),
+(2, 'São Paulo', 'Rua B', '456', ''),
+(3, 'São Paulo', 'Rua C', '789', 'Sala 2'),
+(4, 'Rio de Janeiro', 'Rua D', '321', 'Casa 3'),
+(5, 'Belo Horizonte', 'Rua E', '654', '');
 
 -- Inserir produtos
 INSERT INTO produtos (nome, categoria, preco, descricao, imagem) VALUES
